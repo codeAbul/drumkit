@@ -14,8 +14,8 @@ function playTheAudio(event: KeyboardEvent, { target } = event) {
     }
   }
 }
-function stopTheAudio({ target }: TransitionEvent) {
-  if (target instanceof HTMLElement) {
+function stopTheAudio(event: TransitionEvent, { target } = event) {
+  if (event.propertyName != "transform" && target instanceof HTMLElement) {
     target.classList.remove(`keypanel--key__clicked`);
   }
 }
